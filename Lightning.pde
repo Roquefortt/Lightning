@@ -3,7 +3,8 @@ int startY = 65;
 int endX = 150;
 int endY = 0;
 
-int x = 50;
+//person
+int x = 100;
 
 void setup()
 {
@@ -25,18 +26,18 @@ void person ()
 {
 //head and body
 	fill(0, 0, 0);
-	ellipse(30,250,20,20);
+	ellipse(x-20, 250, 20, 20);
 
 	stroke(0, 0, 0);
-	line(30,260,30,280);
+	line(x-20, 260, x-20, 280);
 
 //arms
-	line(30,270,20,265);
-	line(30,270,40,265);
+	line(x-20, 270, x-30, 265);
+	line(x-20, 270, x-10, 265);
 
 //legs
-	line(30,280,20,290);
-	line(30,280,40,290);
+	line(x-20, 280, x-30, 290);
+	line(x-20, 280, x-10, 290);
 }
 
 void draw()
@@ -49,15 +50,14 @@ void draw()
 
 	while (endX < 301)
 	{
-		endX = startX + (int)(Math.random() * 9);
-		endY = startY + (int)(Math.random() * -9) + 18;
+		endX = startX + (int)(Math.random() * 19);
+		endY = startY + (int)(Math.random() * -19) + 18;
 
 		line(startX, startY, endX, endY);	
 
 		startX = endX;
 		startY = endY;
 	}
-
 }
 
 void mousePressed()
