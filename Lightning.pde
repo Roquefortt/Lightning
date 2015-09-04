@@ -4,7 +4,7 @@ int endX = 150;
 int endY = 0;
 
 //person
-int x = 100;
+int x = 120;
 
 void setup()
 {
@@ -25,7 +25,6 @@ void cloud ()
 void person ()
 {
 //head and body
-	fill(0, 0, 0);
 	ellipse(x-20, 250, 20, 20);
 
 	stroke(0, 0, 0);
@@ -38,12 +37,21 @@ void person ()
 //legs
 	line(x-20, 280, x-30, 290);
 	line(x-20, 280, x-10, 290);
+
+
+/*	if (x > 301)
+	{
+		x = -10;
+	}
+*/
 }
 
 void draw()
 {
 	noStroke();
 	cloud();
+	fill(0, 0, 0);
+	stroke(0, 0, 0);
 	person();
 
 	stroke((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256));
@@ -51,12 +59,19 @@ void draw()
 	while (endX < 301)
 	{
 		endX = startX + (int)(Math.random() * 9);
-		endY = startY + (int)(Math.random() * -19) + 18;
+		endY = startY + (int)(Math.random() * -9) + 18;
 
 		line(startX, startY, endX, endY);	
 
 		startX = endX;
 		startY = endY;
+	}
+
+	if (x > 200)
+	{
+		stroke((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256));
+		fill((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256));
+		person();
 	}
 }
 
@@ -67,10 +82,15 @@ void mousePressed()
 	noStroke();
 	cloud ();
 
+	x = x + 10;
+
+	if (x > 230)
+	{
+		x=230;
+	}
+
 	startX = 150;
 	startY = 65;
 	endX = 150;
 	endY = 0;
 }
-
-
